@@ -1,8 +1,14 @@
 import React from "react"
-
+import Header from "./componentes/header"
+import Contactos from "./componentes/tarjetas"
+import Footer from "./componentes/footer"
 function App() {
   return (
-   <p>React</p>
+ <>
+    <Header/>
+    <Contactos/>
+    <Footer/>
+   </>
   );
 }
 

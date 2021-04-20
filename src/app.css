@@ -1,0 +1,16 @@
+
+body { 
+    height: 100%;
+}
+
+.contenedor {
+        overflow: hidden;
+        width: 100%;
+    
+}
+
+.tarjetas {
+    float: left;
+    margin: 5px;
+    
+}
