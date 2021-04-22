@@ -130,6 +130,46 @@ class Contactos extends Component {
                  
             
           }
+
+          moverDerecha=(idx)=> {
+                 
+            let posicion = this.state.personas.findIndex(resultado => resultado.login.uuid === idx);
+            console.log(posicion);
+            let persona= this.state.personas[posicion]
+      console.log(persona);
+      var end= posicion + 1
+    
+       var prueba =this.state.personas.splice(posicion,1)[0]
+     console.log(prueba);
+    
+      this.state.personas.splice(end,0, prueba)
+    
+   
+      
+  this.setState({personas : this.state.personas})
+  console.log(this.state.personas);
+
+      }
+
+      moverIzquierda=(idx)=> {
+           
+        let posicion = this.state.personas.findIndex(resultado => resultado.login.uuid === idx);
+        console.log(posicion);
+        let persona= this.state.personas[posicion]
+  console.log(persona);
+  var end= posicion - 1
+
+   var prueba =this.state.personas.splice(posicion,1)[0]
+ console.log(prueba);
+
+  this.state.personas.splice(end,0, prueba)
+
+
+   
+this.setState({personas : this.state.personas})
+console.log(this.state.personas);
+
+  }
        
 
     borrar = (idx) => {
@@ -146,11 +186,11 @@ class Contactos extends Component {
     return(
             
         <> 
-            <div className= "contenedor"> 
+            <div className= "data-uk-search" > 
 
-            <input className="form-control"  placeholder="Filtrado por nombre " value={this.state.text} onChange={(text) => this.filter(text)}/>
-            <input className="form-control"  placeholder="Filtrado por apellidos " value={this.state.text} onChange={(text) => this.filterDos(text)}/>
-            <input className="form-control"  placeholder="Filtrado por edad " value={this.state.text} onChange={(text) => this.filterTres(text)}/>
+            <input className="data-uk-search-input" style={ { width: 99 + "%", marginTop: 5 + "px", marginLeft: 7 + "px" }  } placeholder="Filtrar por nombre " value={this.state.text} onChange={(text) => this.filter(text)}/>
+            <input className="data-uk-search-input" style={ { width: 99 + "%", marginTop: 5 + "px", marginLeft: 7 + "px" }  } placeholder="Filtrar por apellidos " value={this.state.text} onChange={(text) => this.filterDos(text)}/>
+            <input className="data-uk-search-input" style={ { width: 99 + "%", marginTop: 5 + "px", marginBottom: 5 + "px" , marginLeft: 7 + "px"}  } placeholder="Filtrar por edad " value={this.state.text} onChange={(text) => this.filterTres(text)}/>
             
              {   
 
@@ -160,7 +200,7 @@ class Contactos extends Component {
     return (
 
         
-              <Personas personasRecorridas = {infoDePersona}  pasarBorrar={this.borrar} key= {infoDePersona.login.uuid} colorFondo= "red" />  
+              <Personas personasRecorridas = {infoDePersona}  Mover={this.moverDerecha} pasarMover={this.moverIzquierda} pasarBorrar={this.borrar} key= {infoDePersona.login.uuid} colorFondo= "white" />  
             
                               
             )
@@ -170,11 +210,12 @@ class Contactos extends Component {
 
             </div>
             
-            <input className="form-control "  id="numero" placeholder="Ingrese un valor " value={this.state.texto}/>
-          <button    onClick={this.masTarjetas.bind(this)} > Cargar mas </button>
-          <button
+            {/* <input className="form-control "  id="numero" placeholder="Ingrese un valor " value={this.state.texto}/> */}
+            <input className="data-uk-search-input" id="numero" style={ { width: 99 + "%", marginTop: 5 + "px", marginBottom: 5 + "px", marginLeft: 7 + "px"  }  } placeholder="Ingrese un valor" value={this.state.texto}/>
+          <button type="button" className="btn btn-dark" style={ { margin: 10 + "px" }  }onClick={this.masTarjetas.bind(this)} > Cargar mas </button>
+          <button type="button" className="btn btn-dark"
           onClick = {this.reset.bind(this)}                    
-        > reset</button> 
+        > Reset</button> 
           
        </>  
     )      

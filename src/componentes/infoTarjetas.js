@@ -3,6 +3,11 @@ import React, {Component} from "react"
 import Modal from 'react-uikit-modal';
 import velocity from 'velocity-animate';
 
+<>
+<script src="js/uikit.min.js"></script>
+<script src="js/uikit-icons.min.js"></script>
+</>
+
 class Personas extends Component {
     
   constructor(props){
@@ -45,37 +50,50 @@ CambiarColor (nuevoColor){
         <>
 
     
-    
-<div className="card tarjetas"  style= {{width: 15 + "rem", backgroundColor: this.state.color }}
 
-onMouseEnter={this.CambiarColor.bind(this, "blue")}
+<div className="card tarjetas"  style= {{width: 20 + "rem", borderWidth: "medium", borderColor: this.state.color }}
+
+onMouseEnter={this.CambiarColor.bind(this, "black")}
 onMouseLeave={this.CambiarColor.bind(this, this.props.colorFondo)}
 
 >
-<button       onClick={this.props.pasarBorrar.bind(this,  this.props.personasRecorridas.login.uuid)}
+<button type="button" data-uk-close onClick={this.props.pasarBorrar.bind(this,  this.props.personasRecorridas.login.uuid)}
 
 style={ {  
   
-  width: 40 + "px" ,
-  
+  width: 30 + "px" ,
+  padding: 10 + "px",
+  marginLeft: 280 + "px",
 
  }  }        
 
->  X </button>
+> </button>
       
         <img className="card-img-top"  alt=" "  src={this.props.personasRecorridas.picture.large} />
         <div className="card-body">
     
     
-      <h5 className="card-title">{this.props.personasRecorridas.name.last}  {this.props.personasRecorridas.name.first } </h5>
+      <h5 className="card-title"
+      style={ {  
+         fontWeight: "bold",
+       }  }        
+       >{this.props.personasRecorridas.name.last},  {this.props.personasRecorridas.name.first } </h5>
 
        <p className="card-text"> </p>
-       <p className="card-text" type="date-date"> {this.props.personasRecorridas.dob.date} - ({this.props.personasRecorridas.dob.age} )</p>
+       <p className="card-text" type="date"> {this.props.personasRecorridas.dob.date} - ({this.props.personasRecorridas.dob.age} )</p>
      
+<button    onClick={this.props.pasarMover.bind(this,  this.props.personasRecorridas.login.uuid)}       
 
-    
+>  izquierda </button>
+
+<button    onClick={this.props.Mover.bind(this,  this.props.personasRecorridas.login.uuid)}       
+
+>  derecha </button>
+
+
 
 <Modal
+          
           close
           show={this.state.show}
           trigger={{
@@ -86,8 +104,19 @@ style={ {
             }
           }}
         >
-
-          <h2>Detalle de: {this.props.personasRecorridas.name.first} </h2>
+          <div className="data-uk-modal" 
+          style={ {  
+          paddingInline: 12 + "px",
+          padding: 20 + "px",
+       }  }  
+           >
+              
+          
+          <h2 className="data-uk-modal-title" 
+          style={ {  
+            fontWeight:"bold",
+         }  }
+          >{this.props.personasRecorridas.name.first} {this.props.personasRecorridas.name.last}  </h2>
           <p>
            {this.props.personasRecorridas.email}
           </p>
@@ -109,9 +138,10 @@ style={ {
           <p>
            {this.props.personasRecorridas.phone}
           </p>
+          </div>
 
           
-        </Modal>
+        </Modal> 
 
 
       
@@ -120,6 +150,8 @@ style={ {
       </div>
                       
       </div>
+
+
                       
 
         </>

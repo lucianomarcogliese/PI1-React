@@ -7,8 +7,8 @@ import '../app.css';
                     <header className="header" >
                             <nav className="bg-light bck"  style={{height: 100 + "px"}} >
         
-                                    <h2 className="text-left text-dark position-relative " fontFamily="Raleway" style={ {top: 30 + "%"}}>
-                                          Los contactos son:
+                                    <h2 className="text-left position-relative "  style={ {top: 30 + "%", fontFamily:"Raleway", paddingLeft: 15 + "px"}}>
+                                          Lista de contactos
                                     </h2>
                             </nav>
         
