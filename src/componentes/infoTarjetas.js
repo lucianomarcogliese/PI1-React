@@ -79,7 +79,7 @@ style={ {
        >{this.props.personasRecorridas.name.last},  {this.props.personasRecorridas.name.first } </h5>
 
        <p className="card-text"> </p>
-       <p className="card-text" type="date"> {this.props.personasRecorridas.dob.date.substring(0,10)} - ({this.props.personasRecorridas.dob.age} )</p>
+       <p className="card-text"> {this.props.personasRecorridas.dob.date.substring(0,10)} - ({this.props.personasRecorridas.dob.age} )</p>
      
 <button type="button" className="btn btn-light" style={ {   width: 50 + "%",}  } onClick={this.props.pasarMover.bind(this,  this.props.personasRecorridas.login.uuid)}       
 
