@@ -1,4 +1,3 @@
-
 import Personas from "./infoTarjetas";
 
 
@@ -100,10 +99,7 @@ class Contactos extends Component {
             } 
             
              
-            // 1) obtengo la posicion de la card.
-            // 2) clickea en boton la posicion se mueve
-            // funcion tipo borrar, ( , pasarle la posicion)
-            // 
+    
 
         masTarjetas(event){
           var numero = document.getElementById("numero").value
@@ -257,6 +253,3 @@ console.log(this.state.personas);
 
 
 export default Contactos
-
-
-
