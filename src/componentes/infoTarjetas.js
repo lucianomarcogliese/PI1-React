@@ -82,13 +82,13 @@ style={ {
        <p className="card-text"> </p>
        <p className="card-text" type="date"> {this.props.personasRecorridas.dob.date} - ({this.props.personasRecorridas.dob.age} )</p>
      
-<button    onClick={this.props.pasarMover.bind(this,  this.props.personasRecorridas.login.uuid)}       
+<button type="button" className="btn btn-light" style={ {   width: 50 + "%",}  } onClick={this.props.pasarMover.bind(this,  this.props.personasRecorridas.login.uuid)}       
 
->  izquierda </button>
+>  Izquierda </button>
 
-<button    onClick={this.props.Mover.bind(this,  this.props.personasRecorridas.login.uuid)}       
+<button  type="button" className="btn btn-light" style={ {   width: 50 + "%",}  }   onClick={this.props.Mover.bind(this,  this.props.personasRecorridas.login.uuid)}       
 
->  derecha </button>
+>  Derecha </button>
 
 
 
