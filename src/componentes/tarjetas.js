@@ -17,6 +17,7 @@ class Contactos extends Component {
                     textoBuscar2: " ",
                     textoBuscar3: " ",
                     cargarMas: " ",
+                    horizontal: 100 + "%",
                     
     
       }
@@ -97,6 +98,7 @@ class Contactos extends Component {
                    this.setState({personas: this.state.personasOriginal})
             }
             } 
+            
              
             // 1) obtengo la posicion de la card.
             // 2) clickea en boton la posicion se mueve
@@ -170,6 +172,23 @@ this.setState({personas : this.state.personas})
 console.log(this.state.personas);
 
   }
+
+  cambiarHorizontal (nuevoTamaño){
+    if (this.state.horizontal === 100 + "%") {
+      this.setState({
+          horizontal: nuevoTamaño
+      })
+
+     
+  }
+
+  else 
+      this.setState({
+          horizontal: 100 + "%"
+      })
+
+  
+  }
        
 
     borrar = (idx) => {
@@ -186,11 +205,24 @@ console.log(this.state.personas);
     return(
             
         <> 
-            <div className= "data-uk-search" > 
+            
 
             <input className="data-uk-search-input" style={ { width: 99 + "%", marginTop: 5 + "px", marginLeft: 7 + "px" }  } placeholder="Filtrar por nombre " value={this.state.text} onChange={(text) => this.filter(text)}/>
             <input className="data-uk-search-input" style={ { width: 99 + "%", marginTop: 5 + "px", marginLeft: 7 + "px" }  } placeholder="Filtrar por apellidos " value={this.state.text} onChange={(text) => this.filterDos(text)}/>
             <input className="data-uk-search-input" style={ { width: 99 + "%", marginTop: 5 + "px", marginBottom: 5 + "px" , marginLeft: 7 + "px"}  } placeholder="Filtrar por edad " value={this.state.text} onChange={(text) => this.filterTres(text)}/>
+
+            <button    onClick={this.cambiarHorizontal.bind(this, 200 + "%" )}       
+
+            >  Cambiar vista </button>
+
+            <div className= "data-uk-search contenedor" style={ {  
+              
+              width: this.state.horizontal ,
+              
+            
+             }  }> 
+
+            
             
              {   
 
