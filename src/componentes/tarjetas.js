@@ -105,9 +105,7 @@ class Contactos extends Component {
           var numero = document.getElementById("numero").value
              if (isNaN(numero) === false && numero.length !== 0) {
                
-            
-            
-         
+           
             fetch("https://randomuser.me/api/?results=" + numero )
             .then(resource => resource.json())
             .then(data => {
@@ -195,6 +193,56 @@ console.log(this.state.personas);
         console.log(resultado);
         this.setState({personas:resultado})
         };   
+
+
+        ordenPorEdadAsc(){
+
+          var porEdad = this.state.personas.sort((a,b)=>{
+            return a.dob.age - b.dob.age
+          })
+            this.setState({personas: porEdad})
+        }
+        ordenPorEdadDesc(){
+
+          var porEdad = this.state.personas.sort((a,b)=>{
+            return  b.dob.age - a.dob.age
+          })
+            this.setState({personas: porEdad})
+        }
+
+
+
+        Ascendente(){
+              
+     var nombreAscendente =  this.state.personas.sort(function (a, b) {
+            if (a.name.first > b.name.first) {
+              return 1;
+            }
+            if (a.name.first < b.name.first) {
+              return -1;
+            }
+            // a must be equal to b
+            return 0;
+          });
+
+          this.setState({personas:nombreAscendente})                  
+       }
+       Descendiente(){
+              
+        var nombreDescendiente =  this.state.personas.sort(function (a, b) {
+               if (a.name.first < b.name.first) {
+                 return 1;
+               }
+               if (a.name.first > b.name.first) {
+                 return -1;
+               }
+               // a must be equal to b
+               return 0;
+             });
+   console.log(nombreDescendiente);
+             this.setState({personas:nombreDescendiente})                  
+          }
+
     render() {
 
  
@@ -206,7 +254,12 @@ console.log(this.state.personas);
             <input className="data-uk-search-input" style={ { width: 99 + "%", marginTop: 5 + "px", marginLeft: 7 + "px" }  } placeholder="Filtrar por nombre " value={this.state.text} onChange={(text) => this.filter(text)}/>
             <input className="data-uk-search-input" style={ { width: 99 + "%", marginTop: 5 + "px", marginLeft: 7 + "px" }  } placeholder="Filtrar por apellidos " value={this.state.text} onChange={(text) => this.filterDos(text)}/>
             <input className="data-uk-search-input" style={ { width: 99 + "%", marginTop: 5 + "px", marginBottom: 5 + "px" , marginLeft: 7 + "px"}  } placeholder="Filtrar por edad " value={this.state.text} onChange={(text) => this.filterTres(text)}/>
-
+           
+            <button type="button" className="btn btn-dark" style={ { margin: 10 + "px" }  }onClick={this.Ascendente.bind(this)} > Nombre ascendente </button>
+            <button type="button" className="btn btn-dark" style={ { margin: 10 + "px" }  }onClick={this.Descendiente.bind(this)} > Nombre Descendiente </button>
+            <button type="button" className="btn btn-dark" style={ { margin: 10 + "px" }  }onClick={this.ordenPorEdadAsc.bind(this)} > Edad Asc </button>
+            <button type="button" className="btn btn-dark" style={ { margin: 10 + "px" }  }onClick={this.ordenPorEdadDesc.bind(this)} > Edad Desc </button>
+           
             <button    onClick={this.cambiarHorizontal.bind(this, 200 + "%" )}       
 
             >  Cambiar vista </button>
@@ -239,7 +292,15 @@ console.log(this.state.personas);
             </div>
             
             {/* <input className="form-control "  id="numero" placeholder="Ingrese un valor " value={this.state.texto}/> */}
-            <input className="data-uk-search-input" id="numero" style={ { width: 99 + "%", marginTop: 5 + "px", marginBottom: 5 + "px", marginLeft: 7 + "px"  }  } placeholder="Ingrese un valor" value={this.state.texto}/>
+            <input className="data-uk-search-input" id="numero" 
+        
+        style={ { width: 99 + "%", marginTop: 5 + "px", marginBottom: 5 + "px", marginLeft: 7 + "px"  }  } 
+            
+            placeholder="Ingrese un valor" />
+       
+       
+       
+       
           <button type="button" className="btn btn-dark" style={ { margin: 10 + "px" }  }onClick={this.masTarjetas.bind(this)} > Cargar mas </button>
           <button type="button" className="btn btn-dark"
           onClick = {this.reset.bind(this)}                    
