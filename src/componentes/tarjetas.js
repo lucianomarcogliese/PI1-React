@@ -249,22 +249,23 @@ console.log(this.state.personas);
     return(
             
         <> 
+        
             
-
-            <input className="data-uk-search-input" style={ { width: 99 + "%", marginTop: 5 + "px", marginLeft: 7 + "px" }  } placeholder="Filtrar por nombre " value={this.state.text} onChange={(text) => this.filter(text)}/>
+            <div className="cuerpo">
+            <input className="primary ghost" style={ { width: 99 + "%", marginTop: 5 + "px", marginLeft: 7 + "px" }  } placeholder="Filtrar por nombre " value={this.state.text} onChange={(text) => this.filter(text)}/>
             <input className="data-uk-search-input" style={ { width: 99 + "%", marginTop: 5 + "px", marginLeft: 7 + "px" }  } placeholder="Filtrar por apellidos " value={this.state.text} onChange={(text) => this.filterDos(text)}/>
             <input className="data-uk-search-input" style={ { width: 99 + "%", marginTop: 5 + "px", marginBottom: 5 + "px" , marginLeft: 7 + "px"}  } placeholder="Filtrar por edad " value={this.state.text} onChange={(text) => this.filterTres(text)}/>
            
-            <button type="button" className="btn btn-dark" style={ { margin: 10 + "px" }  }onClick={this.Ascendente.bind(this)} > Nombre ascendente </button>
-            <button type="button" className="btn btn-dark" style={ { margin: 10 + "px" }  }onClick={this.Descendiente.bind(this)} > Nombre Descendiente </button>
-            <button type="button" className="btn btn-dark" style={ { margin: 10 + "px" }  }onClick={this.ordenPorEdadAsc.bind(this)} > Edad Asc </button>
-            <button type="button" className="btn btn-dark" style={ { margin: 10 + "px" }  }onClick={this.ordenPorEdadDesc.bind(this)} > Edad Desc </button>
+            <button type="button" className="primary" style={ { margin: 6 + "px", color: "white" }  }onClick={this.Ascendente.bind(this)} > Nombre ascendente </button>
+            <button type="button" className="primary" style={ { margin: 6 + "px", color: "white" }  }onClick={this.Descendiente.bind(this)} > Nombre Descendiente </button>
+            <button type="button" className="primary" style={ { margin: 6 + "px", color: "white" }  }onClick={this.ordenPorEdadAsc.bind(this)} > Edad Asc </button>
+            <button type="button" className="primary" style={ { margin: 6 + "px", color: "white" }  }onClick={this.ordenPorEdadDesc.bind(this)} > Edad Desc </button>
            
             <button    onClick={this.cambiarHorizontal.bind(this, 200 + "%" )}       
 
             >  Cambiar vista </button>
 
-            <div className= "data-uk-search contenedor" style={ {  
+            <div className= "data-uk-search card-container contenedor" style={ {  
               
               width: this.state.horizontal ,
               
@@ -286,26 +287,24 @@ console.log(this.state.personas);
                               
             )
                                                      }) 
+                                                     
 
               }
-
-            </div>
             
-            {/* <input className="form-control "  id="numero" placeholder="Ingrese un valor " value={this.state.texto}/> */}
-            <input className="data-uk-search-input" id="numero" 
+              <input className="data-uk-search-input" id="numero" 
         
         style={ { width: 99 + "%", marginTop: 5 + "px", marginBottom: 5 + "px", marginLeft: 7 + "px"  }  } 
             
             placeholder="Ingrese un valor" />
-       
-       
-       
-       
-          <button type="button" className="btn btn-dark" style={ { margin: 10 + "px" }  }onClick={this.masTarjetas.bind(this)} > Cargar mas </button>
-          <button type="button" className="btn btn-dark"
+
+<button type="button" className="primary" style={ { margin: 10 + "px", color:"white"}  }onClick={this.masTarjetas.bind(this)} > Cargar más </button>
+          <button type="button" className="primary ghost"
           onClick = {this.reset.bind(this)}                    
         > Reset</button> 
-          
+        </div>
+
+            </div>
+            
        </>  
     )      
 }

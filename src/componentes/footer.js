@@ -6,7 +6,8 @@ const myStyle = {
     textAlign: "right",
     height: 50 + "px",
     paddingTop: 10 + "px",
-    paddingRight: 10 + "px"
+    paddingRight: 10 + "px",
+    color: "darkgrey",
 
 }
 function Footer () {
@@ -17,7 +18,7 @@ function Footer () {
         
         <footer className="bg-light" style={ myStyle} >
         
-                <p className= "font-weight-light " >Sol Arancibia y Luciano Marcogliese</p>
+                <p className= "font-weight-light" >Sol Arancibia y Luciano Marcogliese</p>
          
     </footer>
     )

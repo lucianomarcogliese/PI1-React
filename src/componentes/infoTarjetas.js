@@ -52,7 +52,7 @@ CambiarColor (nuevoColor){
 
 <div className="card tarjetas"  style= {{width: 20 + "rem", borderWidth: "medium", borderColor: this.state.color }}
 
-onMouseEnter={this.CambiarColor.bind(this, "black")}
+onMouseEnter={this.CambiarColor.bind(this, "#03BFCB")}
 onMouseLeave={this.CambiarColor.bind(this, this.props.colorFondo)}
 
 >
@@ -68,7 +68,7 @@ style={ {
 
 > </button>
       
-        <img className="card-img-top"  alt=" "  src={this.props.personasRecorridas.picture.large} />
+        <img className="round"  alt=" "  src={this.props.personasRecorridas.picture.large} />
         <div className="card-body">
     
     
@@ -79,7 +79,7 @@ style={ {
        >{this.props.personasRecorridas.name.last},  {this.props.personasRecorridas.name.first } </h5>
 
        <p className="card-text"> </p>
-       <p className="card-text"> {this.props.personasRecorridas.dob.date.substring(0,10)} - ({this.props.personasRecorridas.dob.age} )</p>
+       <p className="card-text"> {this.props.personasRecorridas.dob.date.substring(0,10)} - {this.props.personasRecorridas.dob.age} años</p>
      
 <button type="button" className="btn btn-light" style={ {   width: 50 + "%",}  } onClick={this.props.pasarMover.bind(this,  this.props.personasRecorridas.login.uuid)}       
 
@@ -107,6 +107,7 @@ style={ {
           style={ {  
           paddingInline: 12 + "px",
           padding: 20 + "px",
+          textAlign: "left",
        }  }  
            >
               
@@ -132,7 +133,7 @@ style={ {
            {this.props.personasRecorridas.postcode}
           </p>
           <p>
-           {this.props.personasRecorridas.registered.date}
+           {this.props.personasRecorridas.registered.date.substring(0,10)}
           </p>
           <p>
            {this.props.personasRecorridas.phone}
