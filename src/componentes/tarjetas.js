@@ -354,6 +354,7 @@ console.log(this.state.personas);
 
             </div>
             </div>
+            <div className="contenedorAgregar">
             <input className="data-uk-search-input" id="numero" 
         
         style={ { width: 99 + "%", marginTop: 5 + "px", marginBottom: 5 + "px", marginLeft: 7 + "px"  }  } 
@@ -364,6 +365,7 @@ console.log(this.state.personas);
           <button type="button" className="primary ghost"
           onClick = {this.reset.bind(this)}                    
         > Reset</button> 
+        </div>
             
        </>  
     )      

@@ -62,7 +62,7 @@ p {
 	/* width: 350px; */
 	/* max-width: 100%; */
 	text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 5px;
 }
 
 
@@ -89,17 +89,17 @@ button.primary.ghost {
 }
 
 
-footer {
+/* footer {
     background-color: #222;
     color: #fff;
     font-size: 14px;
-    bottom: 0;
     position: fixed;
     left: 0;
     right: 0;
     text-align: center;
     z-index: 999;
-}
+   
+} */
 
 
 
