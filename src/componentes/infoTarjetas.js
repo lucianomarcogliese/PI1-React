@@ -50,7 +50,7 @@ CambiarColor (nuevoColor){
 
     
 
-<div className="card tarjetas"  style= {{width: 20 + "rem", borderWidth: "medium", borderColor: this.state.color }}
+<div className="card tarjetas texto" id="texto"  style= {{width: 20 + "rem", borderWidth: "medium", borderColor: this.state.color }}
 
 onMouseEnter={this.CambiarColor.bind(this, "black")}
 onMouseLeave={this.CambiarColor.bind(this, this.props.colorFondo)}

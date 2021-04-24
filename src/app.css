@@ -14,3 +14,42 @@ body {
     margin-left: 20px;
     
 }
+
+
+
+
+
+  .globalNuevo {
+
+    height: 650px;
+    overflow: hidden
+
+}
+.textoNuevo {
+    
+    
+    flex: 0 0 auto;
+       
+}
+    .itemsNuevo {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow: auto;
+        height: 600px;
+        -webkit-overflow-scrolling: touch;
+
+} 
+
+
+
+.global {
+	height: 550px;
+	width: 100%;
+	overflow-y: scroll;
+    
+}
+.items {
+	height: auto;
+}
+
+ 

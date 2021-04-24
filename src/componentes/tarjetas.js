@@ -1,9 +1,8 @@
+
 import Personas from "./infoTarjetas";
 
 
 import React, {Component} from "react"
-
-
 
 class Contactos extends Component {
 
@@ -22,6 +21,7 @@ class Contactos extends Component {
       }
     
     }
+    
     componentDidMount(){
         fetch("https://randomuser.me/api/?results=20")
         .then(resource => resource.json())
@@ -98,7 +98,71 @@ class Contactos extends Component {
             }
             } 
             
-             
+             cambiarEstilo(){
+            
+              var global = document.getElementById('global');
+
+              if (global.classList.contains("global") === true) {
+                
+        
+              global.classList.remove('global');
+         
+    
+            var texto = document.getElementsByClassName("texto")
+                
+         
+               var items = document.getElementById('items');
+                 items.classList.remove('items');
+               
+      
+             var globalNuevo = document.getElementById('global');              
+          globalNuevo.classList.add('globalNuevo')
+
+        
+         var textoNuevo = document.getElementsByClassName("texto")
+           var u;
+           for (u = 0; u < texto.length; u++) {
+          
+          textoNuevo[u].classList.add('textoNuevo');
+            
+         } 
+        
+           var itemsNuevo = document.getElementById('items');
+         itemsNuevo.classList.add('itemsNuevo')
+                  
+         
+        }         else {
+
+          var global = document.getElementById('global');
+
+          global.classList.remove('globalNuevo');
+         
+          var items = document.getElementById('items');
+          items.classList.remove('itemsNuevo');
+
+          var texto = document.getElementsByClassName("texto")
+            
+             var u;
+             for (u = 0; u < texto.length; u++) {
+            
+            texto[u].classList.remove('textoNuevo');
+              
+           } 
+       
+           
+           var globalNuevo = document.getElementById('global');              
+        globalNuevo.classList.add('global')
+
+     
+      
+         var itemsNuevo = document.getElementById('items');
+       itemsNuevo.classList.add('items')
+                
+
+
+        }   
+
+            }
     
 
         masTarjetas(event){
@@ -210,8 +274,6 @@ console.log(this.state.personas);
             this.setState({personas: porEdad})
         }
 
-
-
         Ascendente(){
               
      var nombreAscendente =  this.state.personas.sort(function (a, b) {
@@ -243,13 +305,14 @@ console.log(this.state.personas);
              this.setState({personas:nombreDescendiente})                  
           }
 
+          
     render() {
 
  
     return(
             
         <> 
-            
+    
 
             <input className="data-uk-search-input" style={ { width: 99 + "%", marginTop: 5 + "px", marginLeft: 7 + "px" }  } placeholder="Filtrar por nombre " value={this.state.text} onChange={(text) => this.filter(text)}/>
             <input className="data-uk-search-input" style={ { width: 99 + "%", marginTop: 5 + "px", marginLeft: 7 + "px" }  } placeholder="Filtrar por apellidos " value={this.state.text} onChange={(text) => this.filterDos(text)}/>
@@ -259,20 +322,13 @@ console.log(this.state.personas);
             <button type="button" className="btn btn-dark" style={ { margin: 10 + "px" }  }onClick={this.Descendiente.bind(this)} > Nombre Descendiente </button>
             <button type="button" className="btn btn-dark" style={ { margin: 10 + "px" }  }onClick={this.ordenPorEdadAsc.bind(this)} > Edad Asc </button>
             <button type="button" className="btn btn-dark" style={ { margin: 10 + "px" }  }onClick={this.ordenPorEdadDesc.bind(this)} > Edad Desc </button>
+            <button type="button" className="btn btn-dark" style={ { margin: 10 + "px" }  }onClick={this.cambiarEstilo.bind(this)} > Estilo </button>
+
+            <div  id="global"  className= "data-uk-search contenedor global" > 
+
+          <div className="items" id="items">  
+
            
-            <button    onClick={this.cambiarHorizontal.bind(this, 200 + "%" )}       
-
-            >  Cambiar vista </button>
-
-            <div className= "data-uk-search contenedor" style={ {  
-              
-              width: this.state.horizontal ,
-              
-            
-             }  }> 
-
-            
-            
              {   
 
             
@@ -288,7 +344,7 @@ console.log(this.state.personas);
                                                      }) 
 
               }
-
+        </div>
             </div>
             
             {/* <input className="form-control "  id="numero" placeholder="Ingrese un valor " value={this.state.texto}/> */}
@@ -297,7 +353,6 @@ console.log(this.state.personas);
         style={ { width: 99 + "%", marginTop: 5 + "px", marginBottom: 5 + "px", marginLeft: 7 + "px"  }  } 
             
             placeholder="Ingrese un valor" />
-       
        
        
        
