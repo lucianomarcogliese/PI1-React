@@ -320,11 +320,11 @@ console.log(this.state.personas);
             <input className="data-uk-search-input" style={ { width: 99 + "%", marginTop: 5 + "px", marginBottom: 5 + "px" , marginLeft: 7 + "px"}  } placeholder="Filtrar por edad " value={this.state.text} onChange={(text) => this.filterTres(text)}/>
            
             <button type="button" className="primary" style={ { margin: 6 + "px", color: "white" }  }onClick={this.Ascendente.bind(this)} > Nombre ascendente </button>
-            <button type="button" className="primary" style={ { margin: 6 + "px", color: "white" }  }onClick={this.Descendiente.bind(this)} > Nombre Descendiente </button>
+            <button type="button" className="primary" style={ { margin: 6 + "px", color: "white" }  }onClick={this.Descendiente.bind(this)} > Nombre descendente </button>
             <button type="button" className="primary" style={ { margin: 6 + "px", color: "white" }  }onClick={this.ordenPorEdadAsc.bind(this)} > Edad Asc </button>
             <button type="button" className="primary" style={ { margin: 6 + "px", color: "white" }  }onClick={this.ordenPorEdadDesc.bind(this)} > Edad Desc </button>
            
-            <button    onClick={this.cambiarHorizontal.bind(this, 200 + "%" )}/>      
+            <button type="button" className="primary" style={ { margin: 6 + "px", color: "white" }  }onClick={this.cambiarEstilo.bind(this)} > Estilo </button>
 
             <div id="global" className="data-uk-search card-container contenedor global">
 
@@ -349,7 +349,12 @@ console.log(this.state.personas);
               }
        
             
-              <input className="data-uk-search-input" id="numero" 
+             
+        </div>
+
+            </div>
+            </div>
+            <input className="data-uk-search-input" id="numero" 
         
         style={ { width: 99 + "%", marginTop: 5 + "px", marginBottom: 5 + "px", marginLeft: 7 + "px"  }  } 
             
@@ -359,10 +364,6 @@ console.log(this.state.personas);
           <button type="button" className="primary ghost"
           onClick = {this.reset.bind(this)}                    
         > Reset</button> 
-        </div>
-
-            </div>
-            </div>
             
        </>  
     )      
