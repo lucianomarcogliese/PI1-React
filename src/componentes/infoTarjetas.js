@@ -118,25 +118,19 @@ style={ {
          }  }
           >{this.props.personasRecorridas.name.first} {this.props.personasRecorridas.name.last}  </h2>
           <p>
-           {this.props.personasRecorridas.email}
+          <span data-uk-icon="icon: mail"></span> {this.props.personasRecorridas.email}
           </p>
           <p>
-           {this.props.personasRecorridas.location.street.name}   {this.props.personasRecorridas.location.street.number}
+          <span uk-icon="icon: home"></span> {this.props.personasRecorridas.location.street.name}   {this.props.personasRecorridas.location.street.number}
           </p>
           <p>
-          {this.props.personasRecorridas.city} {this.props.personasRecorridas.state}
+          <span uk-icon="icon: location"></span> {this.props.personasRecorridas.location.state}, {this.props.personasRecorridas.location.city}, {this.props.personasRecorridas.location.country} ({this.props.personasRecorridas.location.postcode})
           </p>
           <p>
-           {this.props.personasRecorridas.country}
+          <span uk-icon="icon: pencil"></span> {this.props.personasRecorridas.registered.date.substring(0,10)}
           </p>
           <p>
-           {this.props.personasRecorridas.postcode}
-          </p>
-          <p>
-           {this.props.personasRecorridas.registered.date.substring(0,10)}
-          </p>
-          <p>
-           {this.props.personasRecorridas.phone}
+          <span uk-icon="icon: receiver"></span> {this.props.personasRecorridas.phone}
           </p>
           </div>
 

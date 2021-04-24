@@ -318,13 +318,26 @@ console.log(this.state.personas);
             <input className="primary ghost" style={ { width: 99 + "%", marginTop: 5 + "px", marginLeft: 7 + "px" }  } placeholder="Filtrar por nombre " value={this.state.text} onChange={(text) => this.filter(text)}/>
             <input className="data-uk-search-input" style={ { width: 99 + "%", marginTop: 5 + "px", marginLeft: 7 + "px" }  } placeholder="Filtrar por apellidos " value={this.state.text} onChange={(text) => this.filterDos(text)}/>
             <input className="data-uk-search-input" style={ { width: 99 + "%", marginTop: 5 + "px", marginBottom: 5 + "px" , marginLeft: 7 + "px"}  } placeholder="Filtrar por edad " value={this.state.text} onChange={(text) => this.filterTres(text)}/>
-           
-            <button type="button" className="primary" style={ { margin: 6 + "px", color: "white" }  }onClick={this.Ascendente.bind(this)} > Nombre ascendente </button>
+
+            <div class="dropdown">
+           <button className="primary" style={ { margin: 6 + "px", color: "white" }  }>Filtrar por nombre</button>
+          <div class="dropdown-content">
+          <button type="button" className="primary" style={ { margin: 6 + "px", color: "white" }  }onClick={this.Ascendente.bind(this)} > Nombre ascendente </button>
             <button type="button" className="primary" style={ { margin: 6 + "px", color: "white" }  }onClick={this.Descendiente.bind(this)} > Nombre descendente </button>
-            <button type="button" className="primary" style={ { margin: 6 + "px", color: "white" }  }onClick={this.ordenPorEdadAsc.bind(this)} > Edad Asc </button>
-            <button type="button" className="primary" style={ { margin: 6 + "px", color: "white" }  }onClick={this.ordenPorEdadDesc.bind(this)} > Edad Desc </button>
+        </div>
+      </div>
+
+      <div class="dropdown">
+           <button className="primary" style={ { margin: 6 + "px", color: "white" }  }>Filtrar por edad</button>
+          <div class="dropdown-content">
+          <button type="button" className="primary" style={ { margin: 6 + "px", color: "white" }  }onClick={this.ordenPorEdadAsc.bind(this)} > Edad ascendente </button>
+            <button type="button" className="primary" style={ { margin: 6 + "px", color: "white" }  }onClick={this.ordenPorEdadDesc.bind(this)} > Edad descendente </button>
+        </div>
+      </div>
+            
+            
            
-            <button type="button" className="primary" style={ { margin: 6 + "px", color: "white" }  }onClick={this.cambiarEstilo.bind(this)} > Estilo </button>
+            <button type="button" className="primary ghost" style={ { margin: 6 + "px",  }  }onClick={this.cambiarEstilo.bind(this)} > Cambiar vista </button>
 
             <div id="global" className="data-uk-search card-container contenedor global">
 
