@@ -1,9 +1,8 @@
+
 import Personas from "./infoTarjetas";
 
 
 import React, {Component} from "react"
-
-
 
 class Contactos extends Component {
 
@@ -22,6 +21,7 @@ class Contactos extends Component {
       }
     
     }
+    
     componentDidMount(){
         fetch("https://randomuser.me/api/?results=20")
         .then(resource => resource.json())
@@ -98,7 +98,71 @@ class Contactos extends Component {
             }
             } 
             
-             
+             cambiarEstilo(){
+            
+              var global = document.getElementById('global');
+
+              if (global.classList.contains("global") === true) {
+                
+        
+              global.classList.remove('global');
+         
+    
+            var texto = document.getElementsByClassName("texto")
+                
+         
+               var items = document.getElementById('items');
+                 items.classList.remove('items');
+               
+      
+             var globalNuevo = document.getElementById('global');              
+          globalNuevo.classList.add('globalNuevo')
+
+        
+         var textoNuevo = document.getElementsByClassName("texto")
+           var u;
+           for (u = 0; u < texto.length; u++) {
+          
+          textoNuevo[u].classList.add('textoNuevo');
+            
+         } 
+        
+           var itemsNuevo = document.getElementById('items');
+         itemsNuevo.classList.add('itemsNuevo')
+                  
+         
+        }         else {
+
+          var global = document.getElementById('global');
+
+          global.classList.remove('globalNuevo');
+         
+          var items = document.getElementById('items');
+          items.classList.remove('itemsNuevo');
+
+          var texto = document.getElementsByClassName("texto")
+            
+             var u;
+             for (u = 0; u < texto.length; u++) {
+            
+            texto[u].classList.remove('textoNuevo');
+              
+           } 
+       
+           
+           var globalNuevo = document.getElementById('global');              
+        globalNuevo.classList.add('global')
+
+     
+      
+         var itemsNuevo = document.getElementById('items');
+       itemsNuevo.classList.add('items')
+                
+
+
+        }   
+
+            }
     
 
         masTarjetas(event){
@@ -210,8 +274,6 @@ console.log(this.state.personas);
             this.setState({personas: porEdad})
         }
 
-
-
         Ascendente(){
               
      var nombreAscendente =  this.state.personas.sort(function (a, b) {
@@ -243,6 +305,7 @@ console.log(this.state.personas);
              this.setState({personas:nombreDescendiente})                  
           }
 
+          
     render() {
 
  
@@ -261,19 +324,13 @@ console.log(this.state.personas);
             <button type="button" className="primary" style={ { margin: 6 + "px", color: "white" }  }onClick={this.ordenPorEdadAsc.bind(this)} > Edad Asc </button>
             <button type="button" className="primary" style={ { margin: 6 + "px", color: "white" }  }onClick={this.ordenPorEdadDesc.bind(this)} > Edad Desc </button>
            
-            <button    onClick={this.cambiarHorizontal.bind(this, 200 + "%" )}       
+            <button    onClick={this.cambiarHorizontal.bind(this, 200 + "%" )}/>      
 
-            >  Cambiar vista </button>
+            <div id="global" className="data-uk-search card-container contenedor global">
 
-            <div className= "data-uk-search card-container contenedor" style={ {  
-              
-              width: this.state.horizontal ,
-              
-            
-             }  }> 
+          <div className="items" id="items">  
 
-            
-            
+           
              {   
 
             
@@ -290,6 +347,7 @@ console.log(this.state.personas);
                                                      
 
               }
+       
             
               <input className="data-uk-search-input" id="numero" 
         
@@ -303,6 +361,7 @@ console.log(this.state.personas);
         > Reset</button> 
         </div>
 
+            </div>
             </div>
             
        </>  
