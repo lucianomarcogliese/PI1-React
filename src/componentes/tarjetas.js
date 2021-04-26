@@ -15,7 +15,7 @@ class Contactos extends Component {
                     textoBuscar2: " ",
                     textoBuscar3: " ",
                     cargarMas: " ",
-                    horizontal: 100 + "%",
+            
                     
     
       }
@@ -51,6 +51,9 @@ class Contactos extends Component {
               const itemData = arrayDePersonas.name.first.toUpperCase()
               const textData = text.toUpperCase()
               return itemData.indexOf(textData) > -1
+
+              //El método indexOf() retorna el primer índice en el que se puede encontrar un elemento dado en el array 
+              // ó retorna -1 si el elemento no esta presente.
           })
           this.setState({
               personas: filtrado,
@@ -60,7 +63,9 @@ class Contactos extends Component {
         
                this.setState({personas: this.state.personasOriginal})
         }
-        } 
+        }
+        
+        
         filterDos(event){
           if (event.target.value.length !== 0) {
             
@@ -83,6 +88,8 @@ class Contactos extends Component {
                  this.setState({personas: this.state.personasOriginal})
           }
           } 
+
+
           filterTres(event){
             if (event.target.value.length !== 0) {
               
@@ -142,30 +149,30 @@ class Contactos extends Component {
          
         }         else {
 
-          var global = document.getElementById('global');
+          var globalDos = document.getElementById('global');
 
-          global.classList.remove('globalNuevo');
+          globalDos.classList.remove('globalNuevo');
          
-          var items = document.getElementById('items');
-          items.classList.remove('itemsNuevo');
+          var itemsDos = document.getElementById('items');
+          itemsDos.classList.remove('itemsNuevo');
 
-          var texto = document.getElementsByClassName("texto")
+          var textoDos = document.getElementsByClassName("texto")
             
-             var u;
-             for (u = 0; u < texto.length; u++) {
+             var e;
+             for (e = 0; u < textoDos.length; e++) {
             
-            texto[u].classList.remove('textoNuevo');
+            textoDos[e].classList.remove('textoNuevo');
               
            } 
        
            
-           var globalNuevo = document.getElementById('global');              
-        globalNuevo.classList.add('global')
+           var globalNuevoDos = document.getElementById('global');              
+        globalNuevoDos.classList.add('global')
 
      
       
-         var itemsNuevo = document.getElementById('items');
-       itemsNuevo.classList.add('items')
+         var itemsNuevoDos = document.getElementById('items');
+       itemsNuevoDos.classList.add('items')
                 
 
 
@@ -242,7 +249,10 @@ this.setState({personas : this.state.personas})
 console.log(this.state.personas);
 
   }
+
+
        
+
 
     borrar = (idx) => {
     
@@ -258,7 +268,8 @@ console.log(this.state.personas);
 
           var porEdad = this.state.personas.sort((a,b)=>{
             return a.dob.age - b.dob.age
-          })
+          })           
+
             this.setState({personas: porEdad})
         }
         ordenPorEdadDesc(){
@@ -299,7 +310,37 @@ console.log(this.state.personas);
    console.log(nombreDescendiente);
              this.setState({personas:nombreDescendiente})                  
           }
+          apellidoAscendente(){
+              
+            var nombreAscendente =  this.state.personas.sort(function (a, b) {
+                   if (a.name.last > b.name.last) {
+                     return 1;
+                   }
+                   if (a.name.last < b.name.last) {
+                     return -1;
+                   }
+                   // a must be equal to b
+                   return 0;
+                 });
+       
+                 this.setState({personas:nombreAscendente})                  
+              }
 
+              apellidoDescendiente(){
+              
+                var apellidoDescendiente =  this.state.personas.sort(function (a, b) {
+                       if (a.name.last < b.name.last) {
+                         return 1;
+                       }
+                       if (a.name.last > b.name.last) {
+                         return -1;
+                       }
+                       // a must be equal to b
+                       return 0;
+                     });
+         
+                     this.setState({personas:apellidoDescendiente})                  
+                  }
           
     render() {
 
@@ -315,10 +356,17 @@ console.log(this.state.personas);
             <input className="data-uk-search-input" style={ { width: 99 + "%", marginTop: 5 + "px", marginBottom: 5 + "px" , marginLeft: 7 + "px"}  } placeholder="Filtrar por edad " value={this.state.text} onChange={(text) => this.filterTres(text)}/>
 
             <div class="dropdown">
-           <button className="primary" style={ { margin: 6 + "px", color: "white" }  }>Filtrar por nombre</button>
+           <button className="primary" style={ { margin: 6 + "px", color: "white" }  }>Ordenar por nombre</button>
           <div class="dropdown-content">
           <button type="button" className="primary" style={ { margin: 6 + "px", color: "white" }  }onClick={this.Ascendente.bind(this)} > Nombre ascendente </button>
             <button type="button" className="primary" style={ { margin: 6 + "px", color: "white" }  }onClick={this.Descendiente.bind(this)} > Nombre descendente </button>
+        </div>
+      </div>
+      <div class="dropdown">
+           <button className="primary" style={ { margin: 6 + "px", color: "white" }  }>Ordenar por apellido</button>
+          <div class="dropdown-content">
+          <button type="button" className="primary" style={ { margin: 6 + "px", color: "white" }  }onClick={this.apellidoAscendente.bind(this)} > Apellido ascendente </button>
+            <button type="button" className="primary" style={ { margin: 6 + "px", color: "white" }  }onClick={this.apellidoDescendiente.bind(this)} > Apellido descendente </button>
         </div>
       </div>
 
