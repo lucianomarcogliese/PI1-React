@@ -21,6 +21,15 @@ class Contactos extends Component {
       }
     
     }
+
+    //el componentDidMount es un metodo de ciclo de vida que hace
+    //que se ejecute su contenido apenas se renderiza el componente.
+    //tiene un fetch que captura la api, el data es todo el array de la api
+    //setState sirve para setear datos nuevos dentro de cierto array.
+    //gardamos dos veces con distinto nombre porque personas se va a ir 
+    //modificando constantemente segun la funcion y personasOriginal va a 
+    //servir para mostrar nuevamente el dato original sin alterar y para mostrar
+    //las tarjetas originales sin filtros ni nada.  
     
     componentDidMount(){
         fetch("https://randomuser.me/api/?results=20")
@@ -179,6 +188,9 @@ class Contactos extends Component {
 
             
             })
+
+            //con .value accedemos a lo que escribio el usuario
+            //concat une dos arrays, total son los dos arrays juntos
         
           } else {
             alert("Debes indicar el valor")
@@ -229,23 +241,6 @@ class Contactos extends Component {
 this.setState({personas : this.state.personas})
 console.log(this.state.personas);
 
-  }
-
-  cambiarHorizontal (nuevoTamaño){
-    if (this.state.horizontal === 100 + "%") {
-      this.setState({
-          horizontal: nuevoTamaño
-      })
-
-     
-  }
-
-  else 
-      this.setState({
-          horizontal: 100 + "%"
-      })
-
-  
   }
        
 
@@ -346,7 +341,10 @@ console.log(this.state.personas);
            
              {   
 
-            
+//this.state permite capturar los elementos que tiene adentro (esta en el constructor)
+//infoDePersona es todo el array de la api recorrido. El componente personas le pasa info
+//al personas de infoTarjetas y esta info se captura mediante props
+
             this.state.personas.map((infoDePersona) => {
       
     return (
