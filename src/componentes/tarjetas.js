@@ -173,6 +173,10 @@ class Contactos extends Component {
     
 
         masTarjetas(event){
+        
+            var global = document.getElementById('global');
+
+              if (global.classList.contains("global") === true) {
           var numero = document.getElementById("numero").value
              if (isNaN(numero) === false && numero.length !== 0) {
                
@@ -190,8 +194,47 @@ class Contactos extends Component {
           } else {
             alert("Debes indicar el valor")
           } 
-        } 
-          reset(){
+        } else {
+          
+          //var numero = document.getElementById("numero").value
+          if (isNaN(numero) === false && numero.length !== 0) {
+            
+        
+         fetch("https://randomuser.me/api/?results=" + numero )
+         .then(resource => resource.json())
+         .then(data => {
+           
+           const total=   this.state.personas.concat(data.results)
+           this.setState({personas: total,  cargarMas: numero }  )
+
+            global.classList.remove('global');
+            var texto = document.getElementsByClassName("texto")
+            var items = document.getElementById('items');
+             items.classList.remove('items');
+            var globalNuevo = document.getElementById('global');              
+            globalNuevo.classList.add('globalNuevo')
+           var textoNuevo = document.getElementsByClassName("texto")
+              var u;
+             for (u = 0; u < texto.length; u++) {
+             textoNuevo[u].classList.add('textoNuevo');} 
+               var itemsNuevo = document.getElementById('items');
+           itemsNuevo.classList.add('itemsNuevo')
+
+         
+         })
+     
+       } else  {
+            alert("Debes indicar un valor")
+       }
+        
+        
+        }
+      
+      
+      
+      } 
+          
+        reset(){
           
                  this.setState({personas: this.state.personasOriginal} )
                  
@@ -237,9 +280,6 @@ this.setState({personas : this.state.personas})
 console.log(this.state.personas);
 
   }
-
-
-       
 
 
     borrar = (idx) => {
