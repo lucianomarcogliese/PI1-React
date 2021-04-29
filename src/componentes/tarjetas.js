@@ -21,15 +21,6 @@ class Contactos extends Component {
       }
     
     }
-
-    //el componentDidMount es un metodo de ciclo de vida que hace
-    //que se ejecute su contenido apenas se renderiza el componente.
-    //tiene un fetch que captura la api, el data es todo el array de la api
-    //setState sirve para setear datos nuevos dentro de cierto array.
-    //gardamos dos veces con distinto nombre porque personas se va a ir 
-    //modificando constantemente segun la funcion y personasOriginal va a 
-    //servir para mostrar nuevamente el dato original sin alterar y para mostrar
-    //las tarjetas originales sin filtros ni nada.  
     
     componentDidMount(){
         fetch("https://randomuser.me/api/?results=20")
@@ -199,37 +190,42 @@ class Contactos extends Component {
 
             
             })
-
-            //con .value accedemos a lo que escribio el usuario
-            //concat une dos arrays, total son los dos arrays juntos
         
           } else {
             alert("Debes indicar el valor")
           } 
         } else {
           
-          //var numero = document.getElementById("numero").value
-          if (isNaN(numero) === false && numero.length !== 0) {
+          var numero2 = document.getElementById("numero").value
+          if (isNaN(numero2) === false && numero2.length !== 0) {
             
         
-         fetch("https://randomuser.me/api/?results=" + numero )
+         fetch("https://randomuser.me/api/?results=" + numero2 )
          .then(resource => resource.json())
          .then(data => {
            
            const total=   this.state.personas.concat(data.results)
-           this.setState({personas: total,  cargarMas: numero }  )
+           this.setState({personas: total,  cargarMas: numero2 }  )
 
-            global.classList.remove('global');
+              global.classList.remove('global');
             var texto = document.getElementsByClassName("texto")
-            var items = document.getElementById('items');
+                  
+           
+             var items = document.getElementById('items');
              items.classList.remove('items');
+                 
+        
             var globalNuevo = document.getElementById('global');              
             globalNuevo.classList.add('globalNuevo')
+  
+          
            var textoNuevo = document.getElementsByClassName("texto")
+           
               var u;
              for (u = 0; u < texto.length; u++) {
              textoNuevo[u].classList.add('textoNuevo');} 
-               var itemsNuevo = document.getElementById('items');
+          
+           var itemsNuevo = document.getElementById('items');
            itemsNuevo.classList.add('itemsNuevo')
 
          
@@ -429,10 +425,7 @@ console.log(this.state.personas);
            
              {   
 
-//this.state permite capturar los elementos que tiene adentro (esta en el constructor)
-//infoDePersona es todo el array de la api recorrido. El componente personas le pasa info
-//al personas de infoTarjetas y esta info se captura mediante props
-
+            
             this.state.personas.map((infoDePersona) => {
       
     return (
